@@ -1,0 +1,79 @@
+<!-- <button type="button" class="close pull-right" (click)="onClose()">
+  <span aria-hidden="true" style="color: grey;">×</span>
+</button> -->
+<mdb-icon fas style=" color: #6146d5;float:right;cursor: pointer;" icon="times" mdbTooltip="Close" placement="left" (click)="onClose()"></mdb-icon>
+<!-- <span style="color: #EF7A2D;font-size: x-large;float:right;" (click)="onClose()" mdbTooltip="Close" placement="left">×</span> -->
+<p class="heading"><mdb-icon fas icon="{{popupIcon}}" class="title-icon"></mdb-icon>&nbsp;{{popupLabel}}</p>
+
+<hr color="#D0D0D0">
+<span style="color: red;vertical-align: -4px;">*</span> <span class="required-heading">Required</span>
+<form [formGroup]='facilityForm'>
+  <label class="label">Select Facility</label><br>
+  <div class="col-md-5 pl-0">
+    <div class="form-group">
+    <select class="form-control md-4 fac-dropdown" formControlName="location_category_id" required="required" >
+      <!-- <option disabled hidden>Select Facility</option> -->
+      <option class="option" *ngFor="let x of facilityType" [value]="x.location_category_id">{{x.facility_type}}
+        <div class="divider dropdown-divider"></div>
+      </option>
+    </select>
+    <div
+    *ngIf="facilityForm.controls.location_category_id.invalid && (facilityForm.controls.location_category_id.dirty || facilityForm.controls.location_category_id.touched)">
+    <div style="color:red;font-size:small;">
+      Please Select any facility.
+    </div>
+  </div>
+  </div>
+</div>
+
+
+  <hr color="#D0D0D0">
+  <div class="form-group">
+    <label class="label">Facility Name</label>
+    <input value="Enter Name" type="text" maxLength="50" placeholder="Enter Name" class="form-control input"
+      formControlName="name" required="required" >
+      <div
+      *ngIf="facilityForm.controls.name.invalid && (facilityForm.controls.name.dirty || facilityForm.controls.name.touched)">
+      <div style="color:red;font-size:small;" *ngIf="facilityForm.controls.name.errors?.required">
+        Facility Name is required.
+      </div>
+      <div style="color:red;font-size:small;" *ngIf="facilityForm.controls.name.errors?.maxlength">
+        Name must be at least 50 characters long.
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="form-group col-6">
+      <label class="label">Geo Location(Longitude)</label>
+      <input value="Enter Longitude" type="number" placeholder="Enter Longitude" class="form-control input"
+        formControlName="longitude" required="required" >
+      <div
+        *ngIf="facilityForm.controls.longitude.invalid && (facilityForm.controls.longitude.dirty || facilityForm.controls.longitude.touched)">
+        <div style="color:red;font-size:small;">
+          Longitude is required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-6">
+      <label class="label">Geo Location(Latitude)</label>
+      <input value="Enter Latitude" type="number" placeholder="Enter Latitude" class="form-control input"
+        formControlName="latitude" required="required" >
+        <div
+        *ngIf="facilityForm.controls.latitude.invalid && (facilityForm.controls.latitude.dirty || facilityForm.controls.latitude.touched)">
+        <div style="color:red;font-size:small;">
+          Latitude is required.
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <hr color="#D0D0D0">
+
+  <div class="float-right mb-3">
+    <button mat-raised-button class="cancel" (click)="onClose()">Cancel</button>
+      <button mat-raised-button class="save ml-2" (click)="saveFacility()">Save</button>
+    <!-- <button mat-raised-button class="save ml-2" [disabled]="!facilityForm.valid" (click)="saveFacility()">Save</button> -->
+  </div>
+</form>

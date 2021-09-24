@@ -1,0 +1,128 @@
+<div class="entirePage">
+    <div class="row">
+        <div class="col-lg-8 pt-2">
+        <p class="heading"><mdb-icon far icon="lightbulb" class="title-icon"></mdb-icon>&nbsp;Idea Details</p>
+        </div>
+ 
+        <div class="col-lg-3 ">
+            <p class="idea-count">Idea Number - <span class="count">{{ideaList.IdeaNumber}}</span>
+            </p>
+            <!-- <p><span class="pr-2 admin-name"> 
+             
+                        <img src="{{url}}{{imgPath}}" class="img">&nbsp;&nbsp;
+                {{user_name | titlecase}}</span></p> -->
+        </div>
+        <div class="col-lg-1 pt-2" style="text-align: right;">
+            <mdb-icon fas style=" color: #6146d5;cursor: pointer;" icon="times" mdbTooltip="Close" placement="left" (click)="OnClose()">
+            </mdb-icon>
+        </div>
+    </div>
+    <hr class="hr-title">
+    <div class="row">
+
+        <div class="col-lg-12">
+            <span class="titleName">
+                <!-- <mdb-icon class="pr-2" style="color: #6146d5;" fas icon="lightbulb"></mdb-icon> -->
+                {{ideaList.Title}}
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5">
+            <p class="pl-5 displaySmallTextTitle"><span class="pl-5 displaySmallTextTitle">Posted By - <span style="color: #6146D5;font-weight: 500;">{{ideaList.Name}}</span> </span> - 
+                {{ideaList.SubmissionDate}} </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 description-padding">
+            <p class="pl-3 displayMediumText">{{ideaList.IdeaDescription}}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 description-padding">
+            <span class="pl-3 category">Category Name:</span><span class="category-value"> {{ideaList.category_name}}</span>
+        </div>
+        <div class="col-lg-12 description-padding">
+            <span class="pl-3 category">Geo Location:</span><span class="category-value"> 22, 2A, Mundhwa - Kharadi Rd, Near Nyati Empire, Santipur, Thite Nagar, Kharadi, Pune, Maharashtra 411014</span>
+        </div>
+        <div class="col-lg-12 description-padding">
+            <span class="pl-3 category">Ward Name:</span><span class="category-value"> {{ideaList.ward_name|titlecase}}</span>
+        </div>
+        <div class="col-lg-12 description-padding">
+
+            <span class="pl-3 category">Attachments:</span>
+            <span *ngFor="let filename of thumbnailArray"> 
+                <i class="{{getFileExtension(filename)}}" style="color:#ac9fe6;font-size:70px;padding-left: 20px;" aria-hidden="true"></i> &nbsp;&nbsp;
+              
+          </span>
+            <!-- <span class="category-value">  &nbsp; <img class="img-align" src="../../../assets/img/img.png">&nbsp;&nbsp;
+                <img class="img-align" src="../../../assets/img/img.png">&nbsp;&nbsp;
+                <img class="img-align" src="../../../assets/img/pdf.png"></span> -->
+        </div>
+        <div class="col-lg-12 description-padding">
+
+            <span class="download">{{downloadText}}</span>
+        </div>
+    </div>
+    <div class="space"></div>
+    <div class="comment-count">{{ideaList.CommentCount}} comments</div>
+    <!-- <div class="row">
+        <div class="col-md-5 p-0">
+            <hr class="divider">
+        </div>
+        <div class="col-md-2 p-0">
+            <h4 class="label">Leave a Comment</h4>
+        </div>
+        <div class="col-md-5 p-0">
+            <hr class="divider">
+        </div>
+    </div> -->
+
+
+    <div *ngFor="let comments of ideaList.Comment">
+        <div class="row">
+            <div class="col-lg-10" style="margin-left: 33px;">
+                <h6><span class="pr-3"> 
+                    
+                    <img src="{{url}}{{comments.Image}}" class="img-square">
+                    </span>{{comments.Name}}<span class="pt-2 displaySmallTextComment"> - Posted on:
+                         {{comments.DateOfComment| date:'dd-MM-yyyy'}}</span></h6>
+            </div>
+
+            <div class="col-lg-1" style="text-align: center;padding-left: 83px;">
+                <mdb-icon style=" color: #6146d5;cursor: pointer;" fas icon="trash-alt"
+                    (click)="deleteIdeaComment(comments.IdeaNumber,comments.AdminFlag,comments.commentUserId)"></mdb-icon>
+            </div>
+        </div>
+        <div class="row pl-5 pr-5">
+            <p class="pl-3 pr-5 displayMediumTextComment"> {{comments.CommentDescription}} </p>
+        </div>
+        <hr>
+    </div>
+    <div class="col-lg-12 pb-2" *ngIf="ideaList.CommentCount!=0 && ideaList.CommentCount>3 && offset<ideaList.CommentCount">
+
+        <span class="load-more" (click)="getIdeaSummary()">Load more comments...</span>
+    </div>
+    <div class="row">
+        <div class="col-md-11 col-lg-11 col-sm-11 col-xl-11 pl-3 pr-3">
+
+            <div class="form-group">
+                <textarea placeholder="Leave comment" class="form-control input" (keyup.enter)="addIdeaComment();"
+                    [(ngModel)]="userComment"></textarea>
+            </div>
+        </div>
+        <div class="col-md-1 col-lg-1 col-sm-1 col-xl-1 pr-3 pt-5 margin">
+
+            <div class="form-group">
+                <!-- <button mat-raised-button class="save ml-2" >
+                    <mdb-icon  fas icon="sign-in-alt"></mdb-icon>
+                </button> -->
+
+                <i style="font-size: 22px;color:#6146d5;cursor: pointer;" (click)="addIdeaComment();" class="far fa-paper-plane" mdbTooltip="Post Comment" placement="top"> </i>
+            </div>
+        </div>
+    </div>
+   
+</div>

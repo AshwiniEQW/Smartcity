@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dark Bootstrap Admin by Bootstrapious.com</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Custom Font Icons CSS-->
+    <link rel="stylesheet" href="css/font.css">
+    <!-- Google fonts - Muli-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  </head>
+  <body>
+    <header class="header">   
+      <nav class="navbar navbar-expand-lg">
+        <div class="search-panel">
+          <div class="search-inner d-flex align-items-center justify-content-center">
+            <div class="close-btn">Close <i class="fa fa-close"></i></div>
+            <form id="searchForm" action="#">
+              <div class="form-group">
+                <input type="search" name="search" placeholder="What are you searching for...">
+                <button type="submit" class="submit">Search</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="container-fluid d-flex align-items-center justify-content-between">
+   
+          <div class="navbar-header">
+            <!-- Navbar Header--><a href="#" class="navbar-brand text-center">
+              <div class="brand-text brand-big visible"><span  class="logo-statement m-0">Thiruvananthapuram </span><br/><span  class="logo-statement m-0 pl-2">Connect</span></div>
+              <div class="brand-text brand-sm"><strong class="logo-statement m-0">T</strong><strong class="logo-statement m-0">C</strong></div></a> 
+            <!-- Sidebar Toggle Btn-->
+            <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
+          </div>
+           
+           
+           
+            
+            
+            <!-- Log out               -->
+            <div class="list-inline-item logout" style="color:white"><a id="logout" href="#" class="nav-link">
+              <div class="list-inline-item ">
+                <div class="row">
+                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 p-2 display-block">
+                      <img src="img/avatar-1.jpg" width="100%" class="rounded-circle .profile-img mr-2" alt="profile img">
+                  </div>
+                  <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 p-2">
+                    <p class="profile-paragraph m-0">Welcome </p>
+                     <p class="profile-paragraph m-0">Admin Name </p>
+                  </div>
+                </div>
+               
+              
+            </div>
+            
+              <span class="d-none d-sm-inline">Logout </span><i class="icon-logout"></i></a></div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="d-flex align-items-stretch">
+      <!-- Sidebar Navigation-->
+      <nav id="sidebar">
+        <!-- Sidebar Header-->
+        <div class="sidebar-header d-flex align-items-center p-1">
+         
+        </div>
+        <!-- Sidebar Navidation Menus-->
+        <ul class="list-unstyled">
+          <li class="active"><a href="index.html"> <i class="icon-grid"></i>Dashboard </a></li>
+          <li><a href="#"> <i class="fa fa-file-text-o"></i>Idea Submission Report </a></li>
+          <li><a href="#"> <i class="fa fa-file-text-o"></i>Citizen Report </a></li>
+          <li><a href="#"> <i class="fa fa-file-o"></i>Complaint Report </a></li>
+          <li><a href="#"> <i class="fa fa-file-o"></i>Poll Report </a></li>
+          <li><a href="#"> <i class="fa fa-comment-o"></i>ChatBot </a></li>
+          <li><a href="#"> <i class="fa fa-question"></i>Help</a></li>
+         
+          
+        </ul>
+        <span class="heading">Extras</span>
+        <ul class="list-unstyled">
+          <li> <a href="#"> <i class="icon-settings"></i>Demo </a></li>
+          <li> <a href="#"> <i class="icon-writing-whiteboard"></i>Demo </a></li>
+          <li> <a href="#"> <i class="icon-chart"></i>Demo </a></li>
+        </ul>
+      </nav>
+      <!-- Sidebar Navigation end-->
+      <div class="page-content">
+        <div class="page-header">
+          <div class="container-fluid">
+            <h2 class="h5 no-margin-bottom">Dashboard</h2>
+          </div>
+        </div>
+        <!-- <section class="no-padding-top no-padding-bottom">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-3 col-sm-6">
+                <div class="statistic-block block">
+                  <div class="progress-details d-flex align-items-end justify-content-between">
+                    <div class="title">
+                      <div class="icon"><i class="icon-user-1"></i></div><strong>New Clients</strong>
+                    </div>
+                    <div class="number dashtext-1">27</div>
+                  </div>
+                  <div class="progress progress-template">
+                    <div role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-1"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="statistic-block block">
+                  <div class="progress-details d-flex align-items-end justify-content-between">
+                    <div class="title">
+                      <div class="icon"><i class="icon-contract"></i></div><strong>New Projects</strong>
+                    </div>
+                    <div class="number dashtext-2">375</div>
+                  </div>
+                  <div class="progress progress-template">
+                    <div role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-2"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="statistic-block block">
+                  <div class="progress-details d-flex align-items-end justify-content-between">
+                    <div class="title">
+                      <div class="icon"><i class="icon-paper-and-pencil"></i></div><strong>New Invoices</strong>
+                    </div>
+                    <div class="number dashtext-3">140</div>
+                  </div>
+                  <div class="progress progress-template">
+                    <div role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-3"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="statistic-block block">
+                  <div class="progress-details d-flex align-items-end justify-content-between">
+                    <div class="title">
+                      <div class="icon"><i class="icon-writing-whiteboard"></i></div><strong>All Projects</strong>
+                    </div>
+                    <div class="number dashtext-4">41</div>
+                  </div>
+                  <div class="progress progress-template">
+                    <div role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-4"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section> -->
+        <section class="no-padding-bottom">
+          <div class="container-fluid">
+          
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="row">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 text-center">
+                    <div class="Card-block">
+                      <div class="progress-details">
+                        <div class="title text-center">
+                          <h2 class="total-count-header">80,59,300</h2>
+                          <h6 class="total-count-title">Total Citizens</h6>
+                        </div>
+                        
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                    <div class=" Card-block">
+                      <div class="progress-details">
+                        <div class="title text-center">
+                          <h2 class="total-count-header">80,59,300</h2>
+                          <h6 class="total-count-title">Total Citizens</h6>
+                        </div>
+                        
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                    <div class="facility-card">
+                     <div class="row">
+                       <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 text-left">
+                         <h6 class="facility-header">Thiruvananthapuram Facility Overview</h6>
+                       </div>
+                       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+                         
+                       </div>
+                     </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="bar-chart Card-block no-margin-bottom">
+                  <canvas id="barChartExample1"></canvas>
+                </div>
+               
+              </div>
+              
+            </div>
+          </div>
+        </section>
+    
+    
+       
+    
+        
+        <footer class="footer">
+          <div class="footer__block block no-margin-bottom">
+            <div class="container-fluid text-center">
+              <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+              <p class="no-margin-bottom">2020 &copy; Your company. Design by <a href="https://bootstrapious.com/p/bootstrap-4-dark-admin">Bootstrapious</a>.</p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <!-- JavaScript files-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="js/charts-home.js"></script>
+    <script src="js/front.js"></script>
+  </body>
+</html>

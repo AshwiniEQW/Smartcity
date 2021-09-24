@@ -1,0 +1,161 @@
+<div class="entirePage" *ngIf="incidentData">
+    <div class="row">
+        <div class="col-lg-8 pt-2">
+        <p class="heading">
+            <!-- <mdb-icon far icon="edit" class="title-icon"></mdb-icon> -->
+            View/Edit Incident</p>
+        </div>
+        <!-- <div class="col-lg-6 pt-2">
+           
+        </div> -->
+        <div class="col-lg-3 ">
+            <!-- <h6><span class="pr-2 titleName"> 
+               
+                        <img src="{{url}}{{imgPath}}" class="img">&nbsp;&nbsp;
+                </span>{{user_name | titlecase}}
+            </h6> -->
+            <p class="complaint-id">Incident ID - <span class="count">{{incidentData.Incident_Id}}</span>
+            </p>
+        </div>
+        <div class="col-lg-1 pt-2" style="text-align: right;">
+            <mdb-icon fas style=" color: #6146D5;cursor: pointer;" icon="times" mdbTooltip="Close" placement="left" (click)="onClose()">
+            </mdb-icon>
+        </div>
+    </div>
+    <hr class="hr-title">
+    <div class="row">
+
+        <div class="col-lg-12">
+            <span class="titleName">
+                <!-- <mdb-icon class="pr-2" style="color: #6146D5;" fas icon="lightbulb"></mdb-icon> -->
+                {{incidentData.Incident_Title}}
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5">
+            <p class="pl-5 displaySmallTextTitle">Posted By - <span style="color: #6146D5;font-weight: 500;">{{incidentData.Full_name| titlecase}}</span> - 
+                {{incidentData.Incident_PostdedDate}} </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 description-padding">
+            <p class="pl-3 displayMediumText">{{incidentData.Incident_Description}}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 description-padding">
+            <span class="pl-3 category">Category Name:</span><span class="category-value"> {{incidentData.Incident_CategoryName}}</span>
+        </div>
+        <div class="col-lg-2 description-padding" style="padding-right: 0px;">
+            <span class="pl-3 category">Incident Status:</span>
+            </div>
+            <div class="col-lg-2 status-dropdown">
+       
+                
+                <select class="form-control col-md-2 fac-dropdown" (change)="onStatusChange($event.target.value)" [(ngModel)]="selectedStatus">
+                   <option selected disabled hidden>Select Status</option>
+               
+                   <option class="option" *ngFor="let x of incidentStatus" name="status" ngDefaultControl [value]="x.incident_status_id">  {{x.incident_status_type}}
+
+                 </option>
+               </select>
+ 
+        </div>
+        <div class="col-lg-8" style="padding-top: 4px;padding-left: 0px;">
+            <span class="save-as" (click)="updateIncidentStatus()" mdbTooltip="Update Incident Status" placement="right">Save As</span>
+        </div>
+        <div class="col-lg-12 description-padding">
+            <span class="pl-3 category">Geo Location:</span><span class="category-value"> 22, 2A, Mundhwa - Kharadi Rd, Near Nyati Empire, Santipur, Thite Nagar, Kharadi, Pune, Maharashtra 411014</span>
+        </div>
+        <div class="col-lg-12 description-padding">
+            <span class="pl-3 category">Ward Name:</span><span class="category-value"> {{incidentData.Ward_Name | titlecase}}</span>
+        </div>
+        
+        <div class="col-lg-12 description-padding">
+
+            <span class="pl-3 category">Attachments:</span>
+            
+            <span *ngFor="let filename of thumbnailArray"> 
+                <i class="{{getFileExtension(filename)}}" style="color:#ac9fe6;font-size:70px;padding-left: 20px;" aria-hidden="true"></i> &nbsp;&nbsp;
+              
+          </span>
+            <!-- <span class="category-value">  &nbsp; <img class="img-align" src="../../../assets/img/img.png">&nbsp;&nbsp;
+                <img class="img-align" src="../../../assets/img/img.png">&nbsp;&nbsp;
+                <img class="img-align" src="../../../assets/img/pdf.png"></span> -->
+        </div>
+
+        
+        <div class="col-lg-12 description-padding">
+
+            <span class="download" (click)="downloadZip()">{{downloadText}}</span>
+        </div>
+    </div>
+
+    <div class="space"></div>
+    <div class="comment-count">{{incidentData.comment_count}} comments</div>
+
+   
+
+ <div *ngFor="let comment of incidentData.comments">
+        <div class="row">
+            <div class="col-lg-10" style="margin-left: 33px;">
+                <h6 class="citizen-name-comment"><span class="pr-3"> 
+                    
+                    <img src="{{url}}{{comment.image_path}}" class="img-square">
+                    </span>{{comment.full_name}}<span class="pt-2 displaySmallTextComment"> - Posted On:
+                        {{comment.submission_date}}</span></h6>
+            </div>
+
+            <div class="col-lg-1" style="text-align: center;padding-left:83px">
+                <mdb-icon style=" color: #6146D5;cursor: pointer;" fas icon="trash-alt"
+                    (click)="deleteIncidentComment(comment.comment_incident_id, comment.is_admin, comment.user_id)"></mdb-icon>
+            </div>
+        </div>
+        <div class="row pl-5 pr-5">
+            <p class="pl-3 pr-5 displayMediumTextComment"> {{comment.comments}} </p>
+        </div>
+        <hr>
+    </div>
+    
+    <div class="col-lg-12 " *ngIf="incidentData.comment_count!=0 && incidentData.comment_count>3 && offset<incidentData.comment_count">
+
+        <span class="load-more" (click)="getIncidentDetails()">Load more comments...</span>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-11 col-lg-11 col-sm-11 col-xl-11 pl-3 pr-3 pt-4">   
+
+            <div class="form-group">
+                <textarea placeholder="Leave comment" class="form-control input"
+                    [(ngModel)]="userComment" (keyup.enter)="addIncidentComment();"></textarea>
+            </div>
+        </div>
+        <div class="col-md-1 col-lg-1 col-sm-1 col-xl-1 pl-2 pr-3">
+
+            <div class="form-group" style="padding-top: 36px; ">
+               
+                <i style="font-size: 22px;color:#6146D5;padding-left:10px;cursor: pointer;" mdbTooltip="Post Comment" placement="top" (click)="addIncidentComment();" class="far fa-paper-plane" > </i>
+            </div>
+        </div>
+    </div>
+ 
+    <!-- <hr>
+    <div class="row">
+        <div class="col-md-4 pt-2 pl-3 pb-0">
+    
+        </div>
+        <div class="col-md-8">
+            <div class="float-right mb-3 pt-2 pb-0 button-padding">
+                <button mat-raised-button class="cancel" (click)="onClose()">Cancel</button>
+                <button mat-raised-button class="save ml-2" (click)="updateIncidentStatus()">Save</button>
+            </div>
+        </div>
+        
+    </div>  -->
+  
+
+
+</div>

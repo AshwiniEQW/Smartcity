@@ -1,0 +1,122 @@
+<div class="container">
+  <!-- <span style="color: #EF7A2D;font-size: x-large;float:right;" mdbTooltip="Close" placement="left" (click)="onClose()">×</span> -->
+  <mdb-icon fas style=" color: #6146d5;float: right;cursor: pointer;" icon="times" mdbTooltip="Close" placement="left" (click)="onClose()"></mdb-icon>
+  <div class="row">
+    <div class="col-md-6 pl-0">
+      <button type="button" class="add-btn" (click)="addFacility(null)" mdbTooltip="Click to add new facility!" placement="right">
+        <mdb-icon style="color:#FFFFFF;font-size: 12PX;font-weight: 400;" fas icon="plus" ></mdb-icon> Add Facility
+      </button>
+    </div>
+ 
+      <div class="col-md-6 pl-1 pr-0 Searchbar-align">
+        <form class="form-inline md-form form-sm active-cyan-2">
+            <!-- <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search" mdbInput> -->
+            <input type="text" [(ngModel)]="searchText" class="form-control input" id="search" placeholder="Search"
+            (keyup)="applyFilter($event.target.value)" autocomplete="off" name="search" mdbInput style="width: 90%;" #input/>
+        </form>
+    </div>
+    <!-- </div> -->
+  </div>
+  
+  <hr color="#D0D0D0">
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="facilityTableDataSource" matSort class="mat-elevation-z8">
+
+      <!-- Facility Name Column -->
+      <ng-container matColumnDef="facility_name">
+        <th class="thead" mat-header-cell *matHeaderCellDef mat-sort-header> Facility Name </th>
+        <td mat-cell class="td" style="width: 40%;" *matCellDef="let element"> {{element.facility_name}} </td>
+      </ng-container>
+
+      <!-- Facility Type Column -->
+      <ng-container matColumnDef="facility_type">
+        <th class="thead" mat-header-cell *matHeaderCellDef mat-sort-header> Facility Type</th>
+        <td class="td" mat-cell *matCellDef="let element"> {{element.facility_type}} </td>
+      </ng-container>
+
+      <!--Facility Longitude Column -->
+      <ng-container matColumnDef="longitude">
+        <th class="thead" mat-header-cell *matHeaderCellDef mat-sort-header> Longitude </th>
+        <td class="td" mat-cell *matCellDef="let element"> {{element.longitude}} </td>
+      </ng-container>
+
+      <!-- Facility Latitude Column -->
+      <ng-container matColumnDef="latitude">
+        <th class="thead" mat-header-cell *matHeaderCellDef mat-sort-header> Latitude </th>
+        <td class="td" mat-cell *matCellDef="let element"> {{element.latitude}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th class="thead" mat-header-cell *matHeaderCellDef> </th>
+        <td class="td" mat-cell *matCellDef="let element" style="text-align: right;">
+          <mdb-icon style="color:#6146d5;font-size: small;cursor: pointer;" fas icon="pen" mdbTooltip="Edit Facility" placement="top" (click)="addFacility(element)"></mdb-icon>
+          &nbsp;
+          <mdb-icon style="color:#6146d5;font-size: small;cursor: pointer;" fas icon="trash" mdbTooltip="Delete Facility" placement="top"
+            (click)="deleteFaclity(element.location_id)"></mdb-icon>
+
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="facilityColumns"></tr>
+      <tr class="tr" mat-row *matRowDef="let row; columns: facilityColumns;"></tr>
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell td" colspan="6">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+
+    <mat-paginator class="paginator" [hidePageSize]="true" [pageSizeOptions]="[8]" showFirstLastButtons></mat-paginator>
+  </div>
+  <!-- <table mdbTable class="z-depth-1 table">
+      <thead>
+        <tr class="tr">
+          <th class="thead"
+            *ngFor="let head of headElements; let i = index"
+            scope="col"
+          >
+            {{head}}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="tr" *ngFor="let facility of facilityData; let i = index">
+          <td scope="row">{{facility.name}}</td>
+          <td>{{facility.type}}</td>
+          <td>{{facility.longitude}}</td>
+          <td>{{facility.latitude}}</td>
+          <td>
+            <mdb-icon style="color:#EF7A2D;font-size: small;" fas icon="pen" (click)="addFacility(facility)"></mdb-icon> &nbsp; 
+            <mdb-icon style="color:#EF7A2D;font-size: small;" fas icon="trash" (click)="deleteFaclity(facility.location_id)"></mdb-icon>
+          </td>
+        </tr>
+      </tbody>
+    </table> -->
+
+  <!-- <table class="table">
+        <thead class="thead">
+          <tr class="tr">
+            <th scope="col">Facility Name</th>
+            <th scope="col">Facility Type</th>
+            <th scope="col">Longitude</th>
+            <th scope="col">Latitude</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="tr" *ngFor="let facility of facilityData">
+            <td scope="row">{{facility.name}}</td>
+            <td>{{facility.type}}</td>
+            <td>{{facility.longitude}}</td>
+            <td>{{facility.latitude}}</td>
+            <td>
+              
+              <mdb-icon style="color:#EF7A2D;font-size: small;" fas icon="pen" (click)="addFacility()"></mdb-icon> &nbsp; 
+              <mdb-icon style="color:#EF7A2D;font-size: small;" fas icon="trash" (click)="openModal()"></mdb-icon>
+             
+            </td>
+          </tr>
+         
+        </tbody>
+      </table>
+      <hr color="#1d1935"> -->
+
+</div>

@@ -1,0 +1,116 @@
+
+  <div class="entirePage">
+    <div class="row">
+        <div class="col-lg-8 pt-2">
+        <p class="heading">
+            <mdb-icon fas icon="chart-bar" class="title-icon"></mdb-icon>
+            Poll Analytics Report</p>
+        </div>
+        <!-- <div class="col-lg-6 pt-2">
+           
+        </div> -->
+        <div class="col-lg-3 ">
+            <!-- <h6><span class="pr-2 titleName"> 
+               
+                        <img src="{{url}}{{imgPath}}" class="img">&nbsp;&nbsp;
+                </span>{{user_name | titlecase}}
+            </h6> -->
+            <!-- <p class="complaint-id">Complaint ID - <span class="count">{{complaintData.complaint_id}}</span>
+            </p> -->
+        </div>
+        <div class="col-lg-1 pt-2" style="text-align: right;">
+            <mdb-icon fas style=" color: #6146D5;cursor: pointer;" icon="times" mdbTooltip="Close" placement="left" (click)="onClose();">
+            </mdb-icon>
+        </div>
+    </div>
+    <hr class="hr-title">
+    <div class="row">
+
+        <div class="col-lg-12">
+            <span class="titleName">
+                
+               Poll Subject
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-7">
+            <p class="pl-5 displaySmallTextTitle">Start Date - <span style="color: #000000;font-weight: 400;">23 August, 2021</span> &nbsp;&nbsp;&nbsp;
+               End Date - <span style="color: #000000;font-weight: 400;">31 August, 2021</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- <div class="row">
+        <div class="col-lg-12 description-padding">
+            <p class="pl-3 displayMediumText"></p>
+        </div>
+    </div> -->
+
+
+    <div class="row">
+        <div class="col-lg-6 description-padding">
+            <span class="pl-3 category">a.</span><span class="category-value"> Option 1 </span>
+        </div>
+    
+  
+        <div class="col-lg-6 description-padding">
+            <span class="pl-3 category">b.</span><span class="category-value"> Option 2 </span>
+        </div>
+        <div class="col-lg-6 description-padding">
+            <span class="pl-3 category">c.</span><span class="category-value"> Option 3 </span>
+        </div>
+        <div class="col-lg-6 description-padding">
+            <span class="pl-3 category">d.</span><span class="category-value"> Option 4 </span>
+        </div>
+        <div class="col-lg-6 description-padding">
+            <span class="pl-3 category">e.</span><span class="category-value"> Option 5 </span>
+        </div>
+        <div class="col-lg-6 description-padding">
+            <span class="pl-3 category">f.</span><span class="category-value"> Option 6 </span>
+        </div>
+        <div class="col-lg-6 description-padding">
+            <span class="pl-3 category">g.</span><span class="category-value"> Option 7 </span>
+        </div>
+        <div class="col-lg-6 description-padding">
+            <span class="pl-3 category">h.</span><span class="category-value"> Option 8 </span>
+        </div>
+        <div class="col-lg-6 description-padding">
+            <span class="pl-3 category">i.</span><span class="category-value"> Option 9 </span>
+        </div>
+        <div class="col-lg-6 description-padding">
+            <span class="pl-3 category">j.</span><span class="category-value"> Option 10 </span>
+        </div>
+        <br><br>
+        <!-- <div style="display: block"> -->
+            <hr class="hr-title" style="width:100%;margin-left: 18px;
+            margin-right: 18px;">
+            <div class="row" style="width:100%;">
+                <div class="col-lg-9 pt-2">
+                <p class="heading-chart">
+                    <mdb-icon fas icon="chart-bar" class="chart-icon"></mdb-icon>
+                   Analytics</p>
+                </div>
+                <!-- <div class="col-lg-6 pt-2">
+                   
+                </div> -->
+ 
+                <div class="col-lg-3 pt-2" style="text-align: right;">
+                    <mdb-icon fas style=" color: #6146D5;cursor: pointer;" icon="download" mdbTooltip="Download Analytics" placement="left" >
+                    </mdb-icon>
+                </div>
+            </div>
+  
+          <!-- </div> -->
+</div>
+<canvas mdbChart style=" padding: 50px;" height="300" width="500"
+[chartType]="chartType"
+[datasets]="chartDatasets"
+[labels]="chartLabels"
+[colors]="chartColors"
+[options]="chartOptions"
+[legend]="true"
+(chartHover)="chartHovered($event)"
+(chartClick)="chartClicked($event)">
+</canvas>
+</div>

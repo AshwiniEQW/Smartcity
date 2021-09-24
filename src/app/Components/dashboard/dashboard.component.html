@@ -1,0 +1,106 @@
+<div>
+  <div class="page-content">
+    <div class="page-header">
+      <div class="container-fluid">
+        <!-- <h1 class="h5 no-margin-bottom">Dashboard / <span style="color:white;font-size:smaller;">Overview & stats</span>
+        </h1> -->
+          <div class="col-md-3 pl-0 pr-0">
+          <h2 class="h5 no-margin-bottom" style="width: 106%;"><mdb-icon fas icon="th" style="color: #6146D5;font-size: 21px;vertical-align: -2px;"></mdb-icon>&nbsp;&nbsp; &nbsp;Dashboard / <span style="color:#6146D5;font-size:17px;">Overview & stats</span></h2>
+        </div>
+      </div>
+ 
+    </div>
+
+    <section class="no-padding-bottom">
+      <div class="container-fluid">
+
+        <div class="row">
+          <div class="col-lg-8" style="border-right:2px solid rgb(209, 209, 209);">
+            <div class="row">
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 text-center">
+                <div class="Card-block">
+                  <div class="progress-details ">
+                    <div class="title text-center">
+                      <div class="row">
+                        <div class="col-md-6 pt-1">
+                          <img src="../../../assets/img/totalcitizens.png">
+                        </div>
+                        <div class="col-md-6 pt-3">
+                          <h2 class="total-count-header">{{total}}</h2>
+                          <h6 class="total-count-title">Total Citizens</h6>
+                        </div>
+                      </div>
+                    
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 text-center">
+                <div class="Card-block">
+                  <div class="progress-details ">
+                    <div class="title text-center">
+                      <div class="row">
+                        <div class="col-md-6 pt-1">
+                          <img src="../../../assets/img/registered.png">
+                        </div>
+                        <div class="col-md-6 pt-3">
+                          <h2 class="total-count-header">{{registered}}</h2>
+                          <h6 class="total-count-title">Registered Citizens</h6>
+                        </div>
+                      </div>
+                    
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+              <!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 p-0">
+              <hr style="background-color: rgb(209, 209, 209)">
+            </div> -->
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="facility-card">
+
+
+                  <app-facility-overview></app-facility-overview>
+                  <!-- <div class="row">
+                   <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 text-left">
+                     <h6 class="facility-header">Thiruvananthapuram Facility Overview</h6>
+                    
+                   </div> -->
+                  <!-- <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+                     
+                   </div> -->
+                  <!-- </div> -->
+
+                </div>
+              </div>
+            </div>
+            <!-- <div class = "vertical"></div> -->
+          </div>
+          <!-- <div class="col-lg-1">
+            
+          </div> -->
+
+          <div class="col-lg-4">
+
+            <!-- <canvas id="barChartExample1"></canvas> -->
+            <app-citizen-services></app-citizen-services>
+            <!-- </div> -->
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+  </div>
+
+</div>

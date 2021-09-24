@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.19/esri/themes/light/main.css" />
+    <script src="https://js.arcgis.com/4.19/"></script>
+
+</head>
+
+<body>
+
+    <div>
+        <div class="page-content">
+            <!-- <div class="page-header">
+                <div class="container-fluid">
+                    <h2 class="h5 no-margin-bottom"><span (click)="gotoDashboard()">Dashboard /</span> <span style="color:white;font-size:smaller;">Overview & stats</span></h2>
+                </div>
+            </div> -->
+            <div class="page-header">
+                <div class="container-fluid">
+                    <h2 class="no-margin-bottom text"><span style="cursor: pointer;" (click)="gotoDashboard()"><mdb-icon fas icon="th" style="color: #6146D5;font-size: 21px;vertical-align: -2px;"></mdb-icon>&nbsp;&nbsp; &nbsp;Dashboard /</span> <span style="color:#6146D5;font-size:17px;"> Thiruvananthapuram Facility Overview</span></h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1 pl-5 pr-4 pt-1">
+                    <!-- <button class="backbtn"  rounded="true" type="button" (click)="gotoDashboard()">-->
+                        <img src="../../../assets/img/back-btn.png" class="back-btn" (click)="gotoDashboard()">
+                        <!-- <mdb-icon fas icon="arrow-circle-left" style="color:#6146D5;font-size: 27px;" ></mdb-icon> -->
+                     <!--   Back</button> -->
+                </div>
+                <div class="col-md-11 pl-0">
+                    <p class="facility-header"> 
+                        <img src="{{url}}{{facilityIcon}}" style="height: 35px;
+                        width: 35px;">
+                        <span style="color:#000000;font-size:18px;">&nbsp;{{facilityName}}</span></p>
+
+                </div>
+            </div>
+                <div class="facility-card">
+                    
+                    <div id="viewDiv" #map></div>
+                </div>
+            
+
+        </div>
+    </div>
+
+
+
+
+
+    <!-- <div class="row">
+        <div class="container-fluid">
+            <div id="viewDiv" #map></div>
+        </div>
+    </div> -->
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+.logo-statement{
+font-size:16px;
+color:white;
+}
+.profile-paragraph{
+    font-size:12px;
+    color:#E1C837;
+    }
+
+.profile-img{
+   box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+}
+
+.total-count-header{
+   
+        font-size: 20px;
+        font-weight: 200;
+  
+}
+.total-count-title{
+   
+    font-size: 12px;
+    font-weight: 200;
+
+}
+.facility-header{
+    font-size:16px;
+    font-weight:500;
+    color:#E1C837;
+}
+
+.display-block{
+    display: block;
+}
+
+@media only screen and (max-width: 824px) {
+    .display-block{
+        display: none;
+    }
+  }

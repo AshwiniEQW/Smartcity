@@ -1,0 +1,81 @@
+<div class="entirePage" *ngIf="feedbackData">
+    <div class="row">
+        <div class="col-lg-8 pt-2">
+        <p class="heading">
+            <mdb-icon fas icon="comments" class="title-icon"></mdb-icon>
+            View Feedback</p>
+        </div>
+        <!-- <div class="col-lg-6 pt-2">
+           
+        </div> -->
+        <div class="col-lg-3 ">
+            <!-- <h6><span class="pr-2 titleName"> 
+               
+                        <img src="{{url}}{{imgPath}}" class="img">&nbsp;&nbsp;
+                </span>{{user_name | titlecase}}
+            </h6> -->
+            <!-- <p class="complaint-id">Complaint ID - <span class="count">{{complaintData.complaint_id}}</span>
+            </p> -->
+        </div>
+        <div class="col-lg-1 pt-2" style="text-align: right;">
+            <mdb-icon fas style=" color: #6146D5;cursor: pointer;" icon="times" mdbTooltip="Close" placement="left" (click)="onClose()">
+            </mdb-icon>
+        </div>
+    </div>
+    <hr class="hr-title">
+    <div class="row">
+
+        <div class="col-lg-12">
+            <span class="titleName">
+                
+               {{feedbackData.subject}}
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5">
+            <p class="pl-5 displaySmallTextTitle">Posted By - <span style="color: #6146D5;font-weight: 500;">{{feedbackData.posted_by}}</span> - 
+                {{feedbackData.feedback_submission_date}}</p>
+        </div>
+    </div>
+
+    <!-- <div class="row">
+        <div class="col-lg-12 description-padding">
+            <p class="pl-3 displayMediumText"></p>
+        </div>
+    </div> -->
+
+
+    <div class="row">
+        <div class="col-lg-12 description-padding">
+            <span class="pl-3 category">Citizen Ward:</span><span class="category-value"> {{feedbackData.ward_name|titlecase}}</span>
+        </div>
+     
+        <div class="col-lg-12 description-padding">
+            <span class="pl-3 category">Feedback for:</span><span class="category-value"> {{feedbackData.feedbackfor|titlecase}}</span>
+        </div>
+        <div class="col-lg-12 description-padding">
+            <span class="pl-3 category">Category:</span><span class="category-value"> {{feedbackData.category|titlecase}}</span>
+        </div>
+  
+        <div class="col-lg-12 description-padding">
+            <span class="pl-3 category">Rating:</span><span class="category-value"> 
+                <!-- <div class="row"> -->
+                    <span class="col-sm-12">
+                        <ul class="list-inline rating-list" 
+                            *ngFor="let star of stars" style="display: inline-block" >
+                              <li
+                                  [ngClass]="{'selected': (star <= feedbackData.feedback_rating)}">
+                                <i class="fa fa-star"></i>
+                              </li> 
+                        </ul>
+                    </span>
+                  <!-- </div> -->
+            </span>
+        </div>
+        <div class="col-lg-12 description-padding">
+            <div class="category-value justify-feedback"> {{feedbackData.feedback_description}}</div>
+        </div>
+        
+    
+</div>

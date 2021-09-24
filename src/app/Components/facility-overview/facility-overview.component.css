@@ -1,0 +1,117 @@
+.list-inline {
+    padding-left: 0;
+    list-style: none;
+    width: 100% !important;
+    text-align: right !important;
+}
+
+.div-width{
+    padding-top:1%;
+    width: 25% !important;
+}
+
+.search{
+  background-color: #2B2647;
+   width: 100%;  
+  border: none;
+}
+
+.edit-btn{
+color:#000000;
+background-color: #ffffff;
+border: 1px solid #4e37b0;
+border-radius: 5px;
+float:right;
+width: 106%;
+font-family: 'Segoe UI';
+margin-right:50px;
+padding:4px;
+}
+
+.content{
+  background-image: linear-gradient(
+    180deg
+    , #5338C5, #896Eff);
+  /* background-color:#6146d5; */
+  border: 1px solid #39268b;
+  /* box-shadow: 5px 5px #2B2647; */
+  font-family: 'Segoe UI';
+  padding: 15px;
+  width: 100%;
+  font-size: 20px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.h5-heading{
+ 
+  padding: 15Px;
+  font-family: 'Segoe UI';
+}
+
+.padding{
+  padding: 50px;
+}
+
+.side-card{
+
+  color: grey;
+  background-color: #2B2647;
+  box-shadow: 1px 1px #231f3a;
+}
+.card-count{
+  font-size:20px;
+  font-weight:500;
+}
+.card-title{
+  font-size:14px !important;
+  font-weight:100;
+}
+
+.side-btn{
+  color: #EF7A2D;
+  float:right;
+
+  background-color: #3c3658;
+  border:none;
+
+
+  display:block;
+  height: 23px;
+  width: 23px;
+  border-radius: 50%;
+
+}
+.overview-heading{
+  color: yellow;
+  font-size: 16px;
+  font-family: 'Segoe UI';
+}
+.facility-header{
+    font-size:16px;
+    font-weight:500;
+    color:#000000;
+    text-align: left;
+}
+.facility-overview-card{
+    background-color: #dddbff;
+    width: 100%;
+    padding-left: 0;
+    font-size: larger;
+    font-family: 'Segoe UI';
+    border-bottom: 2px solid #4e37b0;
+    padding: 9px;
+    height: 50px;
+    text-align: left;
+    
+}
+.header-line{
+  color:#000000;
+  font-size: 14px;
+  font-weight: 400;
+  font-family:'Segoe UI';
+  text-align: left;
+  padding-left: 32px;
+}
+
+

@@ -1,0 +1,126 @@
+<div>
+    <div class="page-content">
+        <!-- <div class="page-header">
+            <div class="container-fluid">
+                <h2 class="h5 no-margin-bottom"><span style="color:#000000;font-size:medium;"> <mdb-icon fas icon="question" style="color:#6146D5;font-size:22px;"></mdb-icon>&nbsp;&nbsp; &nbsp; Help</span></h2>
+            </div>
+        </div> -->
+
+        <div class="container-fluid p-0 header-img" style="text-align: center;border-bottom: 2px solid #d0d0d0;">
+
+            <!-- <img style="opacity: 0.3;width: 87%;" src="../../../assets/img/help-img.png"> -->
+            
+            <div class="container p-0">
+
+              <h4 class="search-heading">How can we  help you?</h4>
+              <div class="d-flex searchbar align-items-center mr-auto mt-3">
+          
+                <div class="input-search">
+                  <!-- <button class="btn-search" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                    </svg>
+                  </button> -->
+                  <input type="text" class="ml-3 search" placeholder="Describe your issue" [(ngModel)]="temp_string"
+                    (keyup)="applyFilter($event.target.value)">
+                  <!-- <mat-icon *ngIf="temp_string" (click)="temp_string=''; applyFilter('')">
+                    clear
+                  </mat-icon> -->
+                </div>
+              </div>
+            </div>
+        </div>
+
+     
+        <div class="container p-5" style="border-bottom: 2px solid #d0d0d0;">
+            <h4><strong>FAQ's</strong></h4>
+                <!-- <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search" mdbInput> -->
+            <mat-accordion>
+        
+                <mat-expansion-panel *ngFor="let panel of filtered_questions| filter : searchText;" class="mat-expansion-panel">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                     <p style="font-family: 'Segoe UI';font-weight: 400;font-size: 14px;padding-top: 13px;">{{panel.key}}</p> 
+                    </mat-panel-title>
+                     
+                  </mat-expansion-panel-header>
+                  <p style="white-space:pre-wrap;font-family: 'Segoe UI';font-weight: 400;font-size: 14px;">{{panel.value}}</p>
+                </mat-expansion-panel>
+              
+              </mat-accordion>
+              
+        </div>
+
+        <div class="container">
+         
+          
+          <div class="row">
+              <div class="col-md-1 p-3" style="text-align: right;margin-left: -34px;">
+                <mdb-icon far style=" color: #6146D5;font-size: 30px;font-weight: 400;" icon="question-circle"></mdb-icon>
+                  
+              </div>
+              <div class="col-md-11 p-3">
+                <p class="heading">FACING ANY ISSUE?</p>
+                <h1 class="form-headline">Please fill the form below to get in touch with us.</h1>
+              </div>
+          </div>
+      
+      
+          <!-- <hr color="#2B2647"> -->
+          
+          <form [formGroup]='helpForm'>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group" style="padding-bottom:20px;">
+                   
+                    <input type="text" class="form-control input"
+                        formControlName="userName" disabled>
+                </div>
+                <div class="form-group">
+                  <select class="form-control md-4 fac-dropdown" formControlName="helpCategory" required>
+                    <option class="option" disabled hidden>Select Category</option>
+                    <option class="option" *ngFor="let x of helpCategoryData" [value]="x.value">{{x.value}}
+                      <div class="divider dropdown-divider"></div>
+                    </option>
+                  </select>
+              
+                </div>
+            </div>
+            <div class="col-md-6">
+              
+              <div class="form-group">
+                  <textarea placeholder="Your Question" class="form-control input"
+                      formControlName="description" required></textarea>
+              </div>
+          </div>
+   
+            <!-- <div class="col-md-5 ">
+          
+          </div> -->
+            </div>
+         
+             
+           
+      
+             
+      
+              <!-- <hr color="#2B2647"> -->
+      
+              <!-- <mat-divider style="background-color:#d0d0d0;margin-top: 22px;"></mat-divider> -->
+      
+              <div class="row">
+              
+                  <div class="col-md-12" style="text-align: center;">
+                      <div class=" mb-3 pt-4" >
+                         
+                          <button mat-raised-button class="save ml-2" (click)="saveQuery()">SUBMIT</button>
+                      </div>
+                  </div>
+                  
+              </div>
+            
+          </form>
+      </div>
+    </div>
+</div>
+

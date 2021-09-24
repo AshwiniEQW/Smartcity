@@ -1,0 +1,313 @@
+<div>
+  <header class="header">
+    <nav class="navbar navbar-expand-lg p-0">
+      <div class="search-panel">
+        <div class="search-inner d-flex align-items-center justify-content-center">
+          <div class="close-btn">Close <i class="fa fa-close"></i></div>
+          <form id="searchForm" action="#">
+            <div class="form-group">
+              <input type="search" name="search" placeholder="What are you searching for...">
+              <button type="submit" class="submit">Search</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="container-fluid d-flex align-items-center justify-content-between pl-0">
+
+        <div class="navbar-header header sidebar-header-width" *ngIf="showBigHeader">
+          <div class="header-img">
+            <!-- Navbar Header--><span class="navbar-brand text-center" (click)="gotoDashboard()">
+              <div class="brand-text brand-big visible pl-4"><span class="logo-statement m-0">Thiruvananthapuram
+                </span><br /><span class="logo-statement m-0 pl-2">Connect</span></div>
+              <div class="brand-text brand-sm"><strong class="logo-statement m-0">T</strong><strong
+                  class="logo-statement m-0">C</strong></div>
+            </span>
+            <!-- Sidebar Toggle Btn-->
+            <button class="sidebar-toggle"><i>
+                <mdb-icon far icon="arrow-alt-circle-left" mdbTooltip="Collapse Side Menu" placement="right"
+                  (click)="sideBarToggleFunction()"></mdb-icon>
+              </i></button>
+          </div>
+
+        </div>
+
+        <div class="navbar-header small-header" *ngIf="showSmallHeader">
+          <!-- Navbar Header--><span class="navbar-brand text-center" (click)="gotoDashboard()">
+            <div class="brand-text brand-big visible"><strong class="logo-statement m-0" style="padding-left: 13px;"><br>T
+            </strong><strong class="logo-statement m-0 pl-2">C</strong></div>
+            <div class="brand-text brand-sm"><strong class="logo-statement m-0">T</strong><strong
+                class="logo-statement m-0">C</strong></div>
+          </span>
+          <!-- Sidebar Toggle Btn-->
+          <button class="sidebar-toggle"><i>
+              <mdb-icon far icon="arrow-alt-circle-right" mdbTooltip="Expand Side Menu" placement="right"
+                (click)="sideBarToggleFunction()"></mdb-icon>
+            </i></button><br>
+        </div>
+
+
+
+        <!-- Log out               -->
+        <div class="list-inline-item logout" style="color:white">
+          <div class="list-inline-item ">
+            <div class="row">
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 p-2 display-block pr-3">
+                <img src="{{url}}{{imgPath}}" width="100%" class="rounded-circle usr-img .profile-img mr-2">
+              </div>
+              <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 p-2 mt-1">
+                <h3 class="profile-paragraph-title ml-3">Welcome Admin! </h3>
+                <h4 class="profile-paragraph ml-3">{{user_name | titlecase}} </h4>
+              </div>
+            </div>
+
+
+          </div>
+
+          <span class="d-none d-sm-inline" style="font-size: x-large;font-family: 'Segoe UI';" (click)="logout()">
+          </span>
+          <img src="../../../assets/img/logout.png" style="cursor: pointer;" (click)="logout()" mdbTooltip="Logout" placement="bottom" />
+          <!-- <mdb-icon fas icon="power-off" (click)="logout()" style="font-size: 28px;vertical-align: -5px;" mdbTooltip="Logout" placement="bottom"> </mdb-icon> -->
+          <!-- <i (click)="logout()" style="font-size: 50px;" class="icon-logout"></i> -->
+        </div>
+      </div>
+      <!-- </div> -->
+    </nav>
+  </header>
+  <div class="d-flex align-items-stretch">
+    <!-- Sidebar Navigation-->
+    <nav id="sidebar" *ngIf="showBigHeader">
+      <!-- Sidebar Header-->
+      <div class="sidebar-header d-flex align-items-center p-1">
+
+      </div>
+      <!-- Sidebar Navidation Menus-->
+      <ul class="list-unstyled mb-0" *ngFor="let report of reports; let i = index">
+        <li *ngIf="report.renderVariable==='true'" [ngClass]="'OnActive'"><a>
+
+            <div class="row">
+              <div class="col-md-2 p-0 pl-1">
+                <mdb-icon class="demo" fas fas-2x icon={{report.icon}}></mdb-icon>
+              </div>
+              <div class="col-md-1 p-0" style="color: rgb(209, 209, 209);">
+                |
+              </div>
+              <div class="col-md-9 p-0">
+                {{report.title}}
+              </div>
+            </div>
+
+          </a></li>
+        <li (click)="OnSelect(i)" *ngIf="report.renderVariable==='false'" [ngClass]="'OffActive'">
+          <a>
+            <!-- <mdb-icon class="demo" fas fas-2x icon={{report.icon}}></mdb-icon>
+            {{report.title}} -->
+            <div class="row">
+              <div class="col-md-2 p-0 pl-1">
+                <mdb-icon class="demo" fas fas-2x icon={{report.icon}}></mdb-icon>
+              </div>
+              <div class="col-md-1 p-0" style="color: rgb(209, 209, 209);">
+                |
+              </div>
+              <div class="col-md-9 p-0">
+                {{report.title}}
+              </div>
+            </div>
+          </a>
+        </li>
+
+      </ul>
+      <div class="heading">Top Performing Wards</div>
+      <!-- <div class="displayWardBig"> -->
+
+        <div class="row" *ngFor="let topWards of topWard" style="border-bottom: 1px solid #9e9e9e; ">
+          <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2" style="padding-bottom: 0px !important;">
+            <h6 class="rounded-div-top"><span
+                style="padding: 20%;color: #2B2647;font-weight: bold;">{{topWards.ward_name.substring(0,2)|uppercase}}</span>
+            </h6>
+
+          </div>
+          <div class="col-sm-8 col-md-8 col-lg-8 col-xl-8">
+            <h6 style="color: white;padding-top: 5px;">{{topWards.ward_name|uppercase}}</h6>
+          </div>
+          <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2" style="padding-left: 1%;padding-top: 5px;">
+            <h6 style="font-weight:normal !important;
+             font-size: 90%;
+             margin-top: 25% !important;color: #E1C837; "></h6>
+             <!-- {{topWards.item_count}} -->
+
+          </div>
+        </div>
+
+      <!-- </div> -->
+
+      <div class="heading">Wards Need Improvement</div>
+      <!-- <div class="displayWardBig"> -->
+
+        <div class="row" *ngFor="let lessWards of lessWard" style="border-bottom: 1px solid #9e9e9e;">
+          <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2" style="padding-bottom: 0px !important;">
+            <h6 class="rounded-div-less"><span
+                style="padding: 20%; color: #2B2647;font-weight: bold;">{{lessWards.ward_name.substring(0,2)|uppercase}}</span>
+            </h6>
+
+          </div>
+          <div class="col-sm-8 col-md-8 col-lg-8 col-xl-8">
+            <h6 style="color: white;padding-top: 5px;">{{lessWards.ward_name|uppercase}}</h6>
+          </div>
+          <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2" style="padding-left: 1%;padding-top: 5px;">
+            <h6 style="font-weight:normal !important;
+             font-size: 90%;
+             margin-top: 25% !important;color: #E1C837; "></h6>
+             <!-- {{lessWards.item_count}} -->
+          </div>
+        </div>
+
+        <div >
+          <img src="../../../assets/img/small-white-bg.png" style="width: 100%;"/>
+        </div>
+      <!-- </div> -->
+
+    </nav>
+    <!-- Sidebar Navigation end-->
+
+
+    <!-- Sidebar Navigation-->
+    <nav id="sidebar" *ngIf="showSmallHeader" class="shrinked">
+      <!-- Sidebar Header-->
+      <div class="sidebar-header  d-flex align-items-center p-1">
+
+      </div>
+      <!-- Sidebar Navidation Menus-->
+      <ul class="list-unstyled mb-0" *ngFor="let report of reports; let i = index">
+        <li *ngIf="report.renderVariable==='true'" [ngClass]="'OnActive'"><a> <i>
+              <mdb-icon class="demo" fas fas-2x icon={{report.icon}}></mdb-icon>
+            </i>{{report.title}}</a></li>
+        <li (click)="OnSelect(i)" *ngIf="report.renderVariable==='false'" [ngClass]="'OffActive'">
+          <a> <i>
+              <mdb-icon class="demo" fas fas-2x icon={{report.icon}}></mdb-icon>
+            </i>{{report.title}}</a>
+        </li>
+
+
+
+
+      </ul>
+      <div class="heading-small">Top Performing Wards</div>
+      <div class="smallRow" *ngFor="let topWards of topWard">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" style="padding-bottom: 0px !important;">
+          <!--          
+            <div class="row pt-3">
+              <div class="col-lg-3 col-md-3 col-xl-3 col-sm-2 p-0"></div>
+              <div class="col-lg-6 col-md-6 col-xl-6 col-sm-6 p-0">
+                <h6 class="roundedSmall-div"><span style="padding-top: 10px;padding-bottom: 4px;color: #2B2647;font-weight: bold;">{{topWards.ward_name.substring(0,2)}}</span> </h6>
+              </div>
+              <div class="col-lg-3 col-md-3 col-xl-3 col-sm-3 p-0"></div>
+            </div> -->
+
+
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <h6 style="color: #ffffff;
+          font-size: 12.8px;
+          font-family: 'Segoe UI';">{{topWards.ward_name|titlecase}}</h6>
+        </div>
+        <!-- <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <h6 style="color: #E1C837;
+          font-size: 12.8px;
+          font-family: 'Segoe UI'">{{topWards.item_count}}</h6>
+        </div> -->
+      </div>
+      <div class="heading-small">Wards Need Improvement</div>
+      <div class="smallRow" *ngFor="let lessWards of lessWard">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" style="padding-bottom: 0px !important;">
+
+          <!-- <div class="row pt-3">
+              <div class="col-lg-3 col-md-3 col-xl-3 col-sm-2 p-0"></div>
+              <div class="col-lg-6 col-md-6 col-xl-6 col-sm-6 p-0">
+                <h6 class="roundedSmall-div"><span style="padding-top: 10px;padding-bottom: 4px;color: #2B2647;font-weight: bold;">{{lessWards.ward_name.substring(0,2)}}</span> </h6>
+              </div>
+              <div class="col-lg-3 col-md-3 col-xl-3 col-sm-3 p-0"></div>
+            </div> -->
+
+
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <h6 style="color: #ffffff;
+          font-size: 12.8px;
+          font-family: 'Segoe UI'">{{lessWards.ward_name|titlecase}}</h6>
+        </div>
+        <!-- <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <h6 style="color: #E1C837;
+          font-size: 12.8px;
+          font-family: 'Segoe UI'">{{lessWards.item_count}}</h6>
+        </div> -->
+      </div>
+    </nav>
+    <!-- Sidebar Navigation end-->
+    <!-- <div [ngSwitch]="indexOf" class="bigWidth">
+      <div *ngSwitchCase="0">
+        <app-dashboard></app-dashboard>
+      </div>
+      <div *ngSwitchCase="1">
+        <app-idea-submission-report></app-idea-submission-report>
+      </div>
+      <div *ngSwitchCase="2">
+        <app-citizen-report></app-citizen-report>
+      </div>
+      <div *ngSwitchCase="3">
+        <app-complaint-report></app-complaint-report>
+      </div>
+      <div *ngSwitchCase="4">
+        <app-poll-report></app-poll-report>
+      </div>
+      <div *ngSwitchCase="5">
+        <app-chat-bot></app-chat-bot>
+      </div>
+      <div *ngSwitchCase="6">
+        <app-help></app-help>
+      </div>
+      <div *ngSwitchCase="7">
+        <app-idea-submission-details></app-idea-submission-details>
+      </div>
+      <div *ngSwitchCase="8">
+        <app-facility-map></app-facility-map>
+      </div>
+
+
+    </div> -->
+    <div *ngIf="showSmallHeader || showBigHeader" [ngSwitch]="indexOf" class="bigWidth">
+      <div *ngSwitchCase="0">
+        <app-dashboard></app-dashboard>
+      </div>
+      <div *ngSwitchCase="1">
+        <app-idea-submission-report></app-idea-submission-report>
+      </div>
+      <div *ngSwitchCase="2">
+        <app-citizen-report></app-citizen-report>
+      </div>
+      <div *ngSwitchCase="3">
+        <app-complaint-report></app-complaint-report>
+      </div>
+      <div *ngSwitchCase="4">
+        <app-poll-report></app-poll-report>
+      </div>
+      <div *ngSwitchCase="5">
+        <app-incident-report></app-incident-report>
+      </div>
+      <div *ngSwitchCase="6">
+        <app-feedback></app-feedback>
+      </div>
+      <div *ngSwitchCase="7">
+        <app-chat-bot></app-chat-bot>
+      </div>
+      <div *ngSwitchCase="8">
+        <app-help></app-help>
+      </div>
+      <div *ngSwitchCase="9">
+        <app-idea-submission-details></app-idea-submission-details>
+      </div>
+      <div *ngSwitchCase="10">
+        <app-facility-map></app-facility-map>
+      </div>
+      
+    </div>
+  </div>

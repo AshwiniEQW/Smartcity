@@ -1,0 +1,213 @@
+.bg {
+    /* background-image: URL("../../../assets/img/bg-img.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; */
+   overflow: hidden;
+    /* position:absolute; */
+    /* background-color:none !important; */
+    height: 100vh;
+    width: 100% !important;
+}
+
+.md-form input{
+    border-bottom:1px solid #b4b0b0 !important;
+  }
+.header-color{
+    background-color: #dddbff;
+    height: 16vh;
+    width:100%
+}
+input{
+    font-size: 15px;
+    font-family: 'Segoe UI';
+    font-weight: 400;
+    height: 19px;
+
+}
+
+.eye-style{
+    vertical-align: -2px;
+    color: #b1b0af;
+    font-size: 20px;
+    margin-left: -36px;
+    cursor: pointer;
+}
+.bg-img-header{
+    background-image: URL("../../../assets/img/bg-login.png");
+    /* background-repeat: no-repeat;
+  
+    overflow-x:hidden;
+    overflow-y:hidden;
+    position:absolute; */
+    background-color:none !important;
+    background-position: 10% 48%;
+    width: 100% !important;
+    background-size: cover;
+}
+.ip2 {
+    border-radius: 5px;
+    border: 2px solid ;
+    padding: 20px; 
+    width: 200px;
+    height: 15px;    
+}
+
+.h1-heading{
+    text-align: center;
+    color: #4519ff;
+    font-family: 'Segoe UI';
+    font-size: 35px;
+    font-weight: 400;
+    padding-top: 24px;
+    padding-bottom: 50px;
+}
+
+
+  
+  .error{
+    color: tomato; 
+    font-size: 12px; 
+    padding-top: 4px
+  }
+
+  .ip2 {
+    border-radius: 25px;
+    border: 2px solid;
+    padding: 20px; 
+    width: 200px;
+    height: 15px;    
+}
+
+    .container-fluid{
+        background-image: url(../../../assets/img/bg-img.jpg);
+        height: 100vh;
+        /* max-width:100%;
+        background-repeat: no-repeat;     */
+
+    }
+
+    .img{
+        padding-left: 20px;
+    }
+    .border-row{
+        border: #dddbff solid 2px;
+        padding: 51px 9px 39px 54px;
+    }
+
+   /* input{
+       height:45px;
+   } */
+   .mat-form-field-infix {
+       width:568px !important;
+   }
+
+    .login-btn{
+      width:100%;
+      /* margin-top:30px; */
+        background-color: #6146D5;
+        color: white;
+        border-radius: 5px;
+      
+        height: 45px;
+        border: none;
+        
+    }
+
+    .heading{
+        color: #000000;
+        font-family: 'Segoe UI';
+        font-size: 22px;
+        font-weight: 500;
+    }
+    .head-line{
+        color: #000000;
+        font-family: 'Segoe UI';
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .input-heading{
+        color: #6146D5;
+        font-size: 14px;
+        font-family: 'Segoe UI';
+        font-weight: 400;
+    }
+
+    .form-padding{
+        padding-left: 11px;
+        padding-right: 47px;
+        padding-top: 66px;
+    }
+    .side-img{
+        padding-left: 25px;
+        padding-top: 30px;
+    }
+    .header-title{
+        padding-top:3rem;
+        padding-bottom:3rem;
+    }
+    .input-style-checkbox {
+
+        width : 10%;
+    }
+    
+    .input-ckeckbox-style {
+        width: 15%;
+        height: 20px;
+        margin-left: -38px;
+    }
+    .input-ckeckbox-style:focus{
+background-color: black;
+    }
+    
+    .checkbox-Alignment-style {
+        
+        margin-top: 2%;
+    }
+    .checkbox-top-padding{
+        padding-top:10px;
+    }
+    .checkbox-text-style {
+        color: black;
+        font-size: 14px;
+        padding-left: 0px;
+        font-family: 'Segoe UI';
+        font-weight: 400;
+    }
+    
+    
+    .checkbox-text-Alignment-style {
+        text-align: left;
+        margin-left: 0% !important;
+        margin-top: 2%;
+    }
+ 
+ 
+      
+    @media only screen and (max-width: 824px) {
+        .border-row{
+            border: none;
+            padding:0px 0px;
+        }
+        .bg-image {
+            /* background-image: URL("../../../assets/img/bg-img.jpg") !important; */
+            /* background-repeat: no-repeat;
+            background-size: cover; */
+            
+            height:fit-content;
+            background-color:none !important;
+            padding:15px !important;
+        } 
+        .form-padding{
+            padding-left: 20px;
+            padding-right:20px;
+        }
+    }
+
+
+    @media only screen and (min-width: 1440px) {
+        .header-title{
+            padding-top:3rem;
+            padding-bottom:3rem;
+        }
+    }

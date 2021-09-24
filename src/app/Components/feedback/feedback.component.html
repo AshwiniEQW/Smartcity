@@ -1,0 +1,121 @@
+
+<div>
+    <div class="page-content">
+        <div class="page-header">
+            <!-- <div class="container-fluid"> -->
+            <div class="row">
+                <div class="col-md-8 pt-0">
+                    <!-- <h2 class="no-margin-bottom text">Dashboard / <span
+                                style="color:white;font-size:smaller;">Complaint
+                                Report</span></h2> -->
+                    <div class="container-fluid">
+                        <h2 class="h5 no-margin-bottom">  <span style="color:#000000;font-size:medium;"> <mdb-icon fas icon="comments" style="color:#6146D5;font-size:22px;"></mdb-icon>&nbsp;&nbsp; &nbsp; Feedback
+                                Report</span></h2>
+                    </div>
+                    <!-- //<hr class="hr"> -->
+                </div>
+                <div class="col-md-4 pt-0">
+                    <form class="form-inline md-form form-sm active-cyan-2">
+                        <!-- <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search" mdbInput> -->
+                        <input type="text" class="form-control input" id="search"
+                            placeholder="Search" (keyup)="applyFilter($event.target.value)" autocomplete="off"
+                            name="search" mdbInput style="width: 95%;margin-top: -11px;" #input/>
+                    </form>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+        <section class="no-padding-bottom">
+            <div class="container-fluid">
+                <div class="mat-elevation-z8">
+                    <table mat-table [dataSource]="feedbackTableDataSource" matSort class="mat-elevation-z8">
+                        <ng-container matColumnDef="ward_name">
+                            <th class="thead" mat-header-cell *matHeaderCellDef mat-sort-header>Ward </th>
+                            <td class="td" mat-cell *matCellDef="let element">
+                                {{element.ward_name|titlecase}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="feedbackfor">
+                            <th class="thead" mat-header-cell *matHeaderCellDef mat-sort-header> Feedback For </th>
+                            <td mat-cell class="td" *matCellDef="let element">
+                               
+                                    {{element.feedbackfor|titlecase}}
+                            
+                            </td>
+                        </ng-container>
+
+    
+
+                        <ng-container matColumnDef="category">
+                            <th class="thead" mat-header-cell *matHeaderCellDef mat-sort-header>Category</th>
+                            <td class="td" mat-cell *matCellDef="let element"> {{element.category|titlecase}} </td>
+                        </ng-container>
+
+
+                        
+
+                     
+
+                        <ng-container matColumnDef="feedback_submission_date">
+                            <th class="thead" mat-header-cell *matHeaderCellDef mat-sort-header> Submission Date</th>
+                            <td class="td" mat-cell *matCellDef="let element"> {{element.feedback_submission_date |
+                                date:'dd-MM-yyyy' }} </td>
+                        </ng-container>
+
+
+                        <ng-container matColumnDef="feedback_rating">
+                            <th class="thead" mat-header-cell *matHeaderCellDef mat-sort-header> Rating</th>
+                            <td class="td" mat-cell *matCellDef="let element">
+                                <!-- {{element.feedback_rating}} -->
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <ul class="list-inline rating-list" 
+                                            *ngFor="let star of stars" style="display: inline-block" >
+                                              <li
+                                                  [ngClass]="{'selected': (star <= element.feedback_rating)}">
+                                                <i class="fa fa-star"></i>
+                                              </li> 
+                                        </ul>
+                                    </div>
+                                  </div>
+                             </td>
+                        </ng-container>
+                        <!-- <ng-container matColumnDef="status">
+                            <th class="thead" mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+                            <td class="td" mat-cell *matCellDef="let element">
+                                <mdb-icon class="fa-xs" fas icon="circle"
+                                    [ngClass]="{blue:element.status=='Closed',green:element.status=='Open',orange:element.status=='In Progress',red:element.status=='Rejected'}">
+                                </mdb-icon>
+                                {{element.status}}
+                            </td>
+                        </ng-container> -->
+
+                        <ng-container matColumnDef="A">
+                            <th class="thead" mat-header-cell *matHeaderCellDef> </th>
+                            <td class="td" mat-cell *matCellDef="let element" style="text-align: right;">
+                                <mdb-icon style="color: #6146D5;font-size: small;cursor: pointer;" fas icon="eye" mdbTooltip="View"
+                                    placement="top" (click)="openDialog(element)"></mdb-icon>
+                                &nbsp; <mdb-icon style="color: #6146D5;font-size: small;cursor: pointer;" fas icon="trash"
+                                    mdbTooltip="Delete" placement="top" (click)="deleteFeedback(element.feedback_id,element.feedbackfor)">
+                                </mdb-icon>
+
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="feedbackColumns"></tr>
+                        <tr class="tr" mat-row *matRowDef="let row; columns: feedbackColumns;"></tr>
+
+                        <tr class="mat-row" *matNoDataRow>
+                            <td class="mat-cell td" colspan="6">No data matching the filter "{{input.value}}"</td>
+                          </tr>
+                    </table>
+
+                    <mat-paginator class="paginator" [hidePageSize]="true" [pageSizeOptions]="[10,20,30]" showFirstLastButtons>
+                    </mat-paginator>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+</div>

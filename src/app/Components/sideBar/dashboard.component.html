@@ -1,0 +1,183 @@
+<div>
+    <header class="header col-lg-12 col-xl-12 col-md-12 col-sm-12 p-0">
+        <nav class="navbar navbar-expand-lg">
+            <div class="search-panel">
+                <div class="search-inner d-flex align-items-center justify-content-center">
+                    <div class="close-btn">Close
+                        <i class="fa fa-close"></i>
+                    </div>
+                    <form id="searchForm" action="#">
+                        <div class="form-group">
+                            <input type="search" name="search" placeholder="What are you searching for...">
+                            <button type="submit" class="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="container-fluid d-flex align-items-center justify-content-between bg">
+                <div class="navbar-header" *ngIf="showSmallHeader">
+                    <!-- Navbar Header-->
+                    <a routerLink="/dashboard" class="navbar-brand">
+                        <!-- <div class="brand-text brand-big  text-uppercase"><strong>Race</strong><strong class="text-primary">Eye</strong></div> -->
+                        <div class="brand-text brand-sm visible">
+                            <strong>Race</strong>
+                            <strong class="text-primary">Eye</strong>
+                        </div>
+                    </a>
+                    <!-- Sidebar Toggle Btn-->
+                    <button class="sidebar-toggle active" (click)="sideBarToggleFunction()">
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+                    <!-- <button class="sidebar-toggle active"><i class="fa fa-long-arrow-right"></i></button> -->
+                </div>
+                <div class="navbar-header" *ngIf="showBigHeader">
+                    <!-- Navbar Header-->
+                    <a routerLink="/dashboard" class="navbar-brand">
+                        <div class="brand-text brand-big  text-uppercase visible">
+                            <strong>Race</strong>
+                            <strong class="text-primary">Eye</strong>
+                        </div>
+                    </a>
+                    <!-- Sidebar Toggle Btn-->
+                    <button class="sidebar-toggle active" (click)="sideBarToggleFunction()">
+                        <i class="bi bi-arrow-left"></i>
+                    </button>
+                    <!-- <button class="sidebar-toggle active"><i class="fa fa-long-arrow-right"></i></button> -->
+                </div>
+                <div class="right-menu list-inline no-margin-bottom">
+                    <i class="bi bi-bell-fill notification-icon-style" (click)="notificationDropdown()" (clickOutside)="notificationOutside()" placement="bottom" ></i>
+
+                    <div class="notification-wrapper" *ngIf="showNotificationDroupdown">
+                        <!-- You can put an icon from Material Design icon or Fontawesome -->
+                        <div class="notification-content">
+                            <div class="notification-header notification-header-style">
+                                <span class="mdi mdi-settings"></span>
+                                <span class="label notification-style">Notifications</span>
+                                <div class="card card-style" *ngFor="let item of cardList">
+                                    <div class="card-body card-body-style">
+                                        <h5 class="card-title card-title-styles">{{item.text}}</h5>
+                                        <!-- <a href="RaceAnalyticsForHandicapper.html">
+                                            <span style="color:yellow;padding-left:10px;">View </span>
+                                        </a> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Languages dropdown    -->
+                    <div class="list-inline-item dropdown" *ngIf="showUserRole">
+                        <a id="languages" rel="nofollow"  routerLink="/dashboard" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" class="nav-link language dropdown-toggle">
+                            <img src="../../assets/img/avatar-1.jpg" width="30px" class="rounded-circle mr-2" alt="English">
+                            <span class="d-none d-sm-inline-block">Moderator</span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a rel="nofollow" class="dropdown-item" (click)="Logout()">
+                                <img src="../../assets/img/avatar-4.jpg" width="20px" alt="English" class="mr-2 rounded-circle">
+                                <span>Handicapper</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="list-inline-item dropdown" *ngIf="!(showUserRole)">
+                        <a id="languages" rel="nofollow"  routerLink="/dashboard" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" class="nav-link language">
+                            <img src="../../assets/img/avatar-1.jpg" width="30px" class="rounded-circle mr-2" alt="English">
+                            <span class="d-none d-sm-inline-block">Handicapper</span>
+                        </a>
+                        <!-- <div class="dropdown-menu">
+                            <a rel="nofollow" class="dropdown-item" (click)="Logout()">
+                                <img src="../../assets/img/avatar-4.jpg" width="20px" alt="English" class="mr-2 rounded-circle">
+                                <span>Moderator</span>
+                            </a>
+                        </div> -->
+                    </div>
+                    <!-- Log out               -->
+                    <div class="list-inline-item logout">
+                        <a id="logout" class="nav-link" (click)="Logout()">
+                            <span class="d-none d-sm-inline">Logout </span>
+                            <i class="icon-logout"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="d-flex align-items-stretch">
+        <!-- Sidebar Navigation-->
+        <nav id="sidebar" class="shrinked" *ngIf="showSmallHeader">
+            <!-- Sidebar Header-->
+            <!-- Sidebar Navidation Menus-->
+            <ul class="list-unstyled">
+                <li class="active">
+                    <a routerLink="/dashboard" routerLinkActive="active">
+                        <i class="icon-home"></i>Home </a>
+                </li>
+                <li *ngIf="showUserRole">
+                    <a routerLink="/Moderator" routerLinkActive="active">
+                        <i class="bi bi-person-fill"></i>Moderator</a>
+                </li>
+                <li>
+                    <a routerLink="/AnalyseRaceForHandicapper">
+                        <i class="fa fa-bar-chart"></i>Analyze a Race </a>
+                </li>
+                <li>
+                    <a routerLink="/RaceAnalyticsForHandicapper">
+                        <i class="icon-grid"></i>Race Predictions</a>
+                </li>
+
+            </ul>
+            <div class="sidebar-footer text-center" style="margin-top:170%;">
+                <img class="img-responsive img-rotate" src="../../assets/img/logohorese2.png" alt="Logo">
+            </div>
+
+        </nav>
+        <nav id="sidebar" *ngIf="showBigHeader">
+            <!-- Sidebar Header-->
+            <!-- Sidebar Navidation Menus-->
+            <ul class="list-unstyled">
+                <li class="active">
+                    <a routerLink="/dashboard" routerLinkActive="active">
+                        <i class="icon-home"></i>Home </a>
+                </li>
+                <li *ngIf="showUserRole">
+                    <a routerLink="/Moderator" routerLinkActive="active">
+                        <i class="bi bi-person-fill"></i>Moderator</a>
+                </li>
+                <li>
+                    <a routerLink="/AnalyseRaceForHandicapper">
+                        <i class="fa fa-bar-chart"></i>Analyze a Race </a>
+                </li>
+                <li>
+                    <a routerLink="/RaceAnalyticsForHandicapper">
+                        <i class="icon-grid"></i>Race Predictions</a>
+                </li>
+            </ul>
+            <div class="sidebar-footer text-center" style="margin-top:170%;">
+                <img class="img-responsive img-rotate" src="../../assets/img/logohorese2.png" alt="Logo">
+            </div>
+
+        </nav>
+        <!-- Sidebar Navigation end-->
+        <div class="page-content p-0" style="background-image: url('../../assets/img/hr-homebg 2.png'); background-size: 1378px;opacity: 0.95;background-repeat: no-repeat;">
+            <div class="page-header">
+                <div class="container-fluid">
+                    <h2 class="h5 no-margin-bottom">Dashboard</h2>
+                </div>
+            </div>
+            <!-- <section class="margin-bottom-sm">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-8 col-lg-8 col-md-6 col-sm-6 notificationDivStyle">
+                            <h6>
+                                <span style="color:yellow;" class="pr-2">Notifications: </span> Oaklawn Park – 1/22/2021, Race 5 analytical report is ready
+                                <a href="RaceAnalyticsForHandicapper.html">
+                                    <span style="color:yellow;padding-left:10px;">View </span>
+                                </a>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </section> -->
+        </div>
+    </div>
+</div>

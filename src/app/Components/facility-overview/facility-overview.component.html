@@ -1,0 +1,122 @@
+<div class="facility-overview-card pt-2 pb-2">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <mdb-icon fas icon="male" style="color: #4e37b0; font-size: 15px; padding-right:5px;margin-left: 6px;"></mdb-icon><span class="facility-header">  Thiruvananthapuram Facility Overview</span> </div>
+      
+    </div>
+      
+     
+  </div>
+
+<div class="row">
+    <div class="col-md-10 pl-3 pt-3">
+        <p class="header-line">Please click on any card to see the Map view</p>
+    </div>
+    <div class="col-md-2 pt-3 pr-2">
+        <button type="button" class="edit-btn" mdbTooltip="Click to add and update facility!" placement="left" (click)="editFacility()">
+                <mdb-icon fas icon="pen" style="color: #4e37b0;"></mdb-icon>&nbsp;&nbsp;Add/Edit
+            </button>
+    </div>
+</div>
+<hr style="background-color: #e9e9ee">
+
+<div class="container">
+    <div class="row pt-4 pl-4 pr-4 pb-3">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 pb-4" *ngFor="let type of facilityType">
+            <div class="card content" (click)="displayMap(type.location_category_id,type.facility_type,type.facility_icon_path)" mdbTooltip="Click to see nearby hotspots!" placement="top">
+
+                <div class="row ">
+                    <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 pt-1  text-center">
+                        <img src='{{url}}{{type.facility_icon_path}}' style="width: 100%;">
+                    </div>
+                    <div class="col-sm-12 col-md-7 col-lg-7 col-xl-7 text-center p-0  mt-2">
+                        <h6 class="card-count">{{type.item_count}}</h6>
+                        <h6 class="card-title">{{type.facility_type}}</h6>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="col-md-4">
+        <div class="card content">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="../../../assets/img/icons/Police Station.png">
+                </div>
+                <div class="col-md-8 text-center">
+                    <h6 class="card-title">223</h6>
+                    <h6 class="card-title">Police Station</h6>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card content">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="../../../assets/img/icons/Blood bank.png">
+                </div>
+                <div class="col-md-8 text-center">
+                    <h6 class="card-title">1,334</h6>
+                    <h6 class="card-title">Blood Bank</h6>
+                </div>
+            </div>
+      
+        </div>
+    </div> -->
+
+
+
+
+<!-- <div class="row pt-3 pl-4 pr-4 pb-4">
+    <div class="col-md-4">
+        <div class="card content">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="../../../assets/img/icons/Public Toilets.png">
+                </div>
+                <div class="col-md-8 text-center">
+                    <h6 class="card-title">2,134</h6>
+                    <h6 class="card-title">Public Toilets</h6>
+                </div>
+            </div>
+       
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card content">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="../../../assets/img/icons/Aerobic Bins.png">
+                </div>
+                <div class="col-md-8 text-center">
+                    <h6 class="card-title">1,324</h6>
+                    <h6 class="card-title">Aerobics Bins</h6>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card content">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="../../../assets/img/icons/Hospitals.png">
+                </div>
+                <div class="col-md-8 text-center">
+                    <h6 class="card-title">2,133</h6>
+                    <h6 class="card-title">Hospitals / Clinic</h6>
+                </div>
+            </div>
+   
+        </div>
+    </div>
+
+
+</div> -->

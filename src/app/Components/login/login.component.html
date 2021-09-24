@@ -1,0 +1,122 @@
+<section class="bg">
+<div class="row">
+
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 header-color">
+    <!-- <div class="header-color p-0"> -->
+    <div class="bg-img-header p-0">
+      <h1 class="h1-heading"> {{head_title| uppercase}}</h1>
+    </div>
+    <!-- </div> -->
+  </div>
+</div>
+<div class="row">
+  <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 text-center p-4">
+    <img width="100%" class="side-img" src="../../../assets/img/login-side-img.png" alt="..." />
+  </div>
+  <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 pl-3 pr-3">
+    <div ng-app="myApp" ng-controller="myController">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 form-padding mb-3 ">
+          <!-- <form name="myForm" class="form"> -->
+          <form [formGroup]="adminLoginForm" (ngSubmit)="onSubmit()" class="form border-row">
+            <p class="heading">Welcome !</p>
+            <p class="head-line pb-4">Login with registered email-id</p>
+            <div class="login-container">
+              <div class="row">
+  
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                 <!-- <div class="md-form"> -->
+                <mdb-icon fas icon="envelope" class="prefix" style="color: #6146D5;font-size: large;"></mdb-icon>
+                  <mat-form-field style="padding-left: 20px;width: 88%;">
+                    <mat-label style="font-family: 'Segoe UI';font-weight: 400;">Email</mat-label>
+                    <input type="email" matInput  required autocomplete="off" formControlName="email">
+                    <mat-error *ngIf="adminLoginForm.get('email').hasError('required')">
+                      Email is Required!
+                    </mat-error>
+                    <mat-error *ngIf="adminLoginForm.get('email').hasError('email')">
+                      Please enter correct email format!
+                    </mat-error>
+                  </mat-form-field>
+                  <!-- <mdb-icon fas icon="envelope" class="prefix" style="color: #6146D5;font-size: small;"></mdb-icon>
+                  <input mdbInput type="text" class="form-control" autocomplete="off" required placeholder="Email ID" mdbInput mdbValidate type="email" formControlName="email"> -->
+                  <!-- <label for="form2">Email ID</label> -->
+                    <!-- <label class="input-heading pl-3">Email ID</label>
+                    <input type="email" mdbInput mdbValidate type="email" formControlName="email"
+                      style="border-radius: 5px;" class="form-control"> -->
+                  <!-- </div> -->
+                  
+                  
+                  <!-- <div
+                    *ngIf="adminLoginForm.controls.email.invalid && (adminLoginForm.controls.email.dirty || adminLoginForm.controls.email.touched)">
+                    <mdb-error>Please enter valid email address!
+                    </mdb-error>
+                  </div> -->
+                
+                </div>
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 pt-1">
+                  <!-- <div class="md-form">
+                    <mdb-icon fas icon="lock" class="prefix" style="color: #6146D5;"></mdb-icon>
+                    <input type="text" class="form-control" placeholder="Password" [type]="hide ? 'password' : 'text'" required minlength="8" matInput mdbValidate formControlName="password">
+                   
+                    
+                    </div> -->
+                    <mdb-icon fas icon="lock" class="prefix" style="color: #6146D5;font-size: large;"></mdb-icon>
+                    <mat-form-field style="padding-left: 20px; width: 88%;">
+                      <mat-label style="font-family: 'Segoe UI';font-weight: 400;">Password</mat-label>
+                      <input [type]="hide ? 'password' : 'text'" matInput  required autocomplete="off" formControlName="password"  minlength="8">
+                      <mdb-icon matSuffix class="eye-style" (click)="hide = !hide" fas icon="{{hide ? 'eye-slash' : 'eye'}}"></mdb-icon>
+                      <mat-error *ngIf="adminLoginForm.get('password').hasError('required')">
+                        Password is Required!
+                      </mat-error>
+                      <mat-error *ngIf="adminLoginForm.get('password').hasError('minlength')">
+                        Password should be atleast 8 characters long!
+                      </mat-error>
+                    </mat-form-field>
+                   
+                  <!-- <div class="form-group">
+                    <label class="input-heading pl-3">Password</label>
+                    <input type="password" mdbInput mdbValidate formControlName="password" style="border-radius: 5px;"
+                      class="form-control" minlength="8" maxlength="50">
+
+                  </div>-->
+                  <!-- <div
+                    *ngIf="adminLoginForm.controls.password.invalid &&(adminLoginForm.controls.password.dirty || adminLoginForm.controls.password.touched)">
+                    <mdb-error><br>Please enter password!
+                    </mdb-error>
+                  </div>  -->
+                </div>
+                <!-- <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 pt-4">
+                 
+                </div> -->
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 checkbox-top-padding">
+                  <mat-checkbox name="rememberMe" value="false" formControlName="rememberMe" ><span style="font-family: 'Segoe UI';font-weight: 400;padding-left: 13px;font-size: 14px;"> Keep me logged in</span></mat-checkbox>
+                    <!-- <div class="form-group"> -->
+                      
+                      <!-- <input type="checkbox" name="rememberMe" value="false" formControlName="rememberMe" class="input-ckeckbox-style mr-2" /><span class="checkbox-text-style checkbox-text-Alignment-style"><label style="margin-left: -20px;">Keep me logged in</label></span> -->
+                    <!-- </div> -->
+                   
+                  </div>
+                  <!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                    <div class="md-form">
+                    
+                      <input type="checkbox" name="rememberMe" value=false formControlName="rememberMe"> Remember me
+                    </div>
+                   
+                  </div> -->
+                <div class="col-xl-11 col-lg-11 col-md-11 col-sm-11 pt-3">
+                  <div class="form-group">
+                    <label class="input-heading"></label>
+                    <!-- <button class="login-btn">LOGIN</button> -->
+                    <button mat-raised-button class="login-btn" >LOGIN</button>
+                    <!-- <div class="clearfix"></div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>

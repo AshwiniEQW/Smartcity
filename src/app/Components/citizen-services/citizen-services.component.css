@@ -1,0 +1,141 @@
+.list-inline {
+    padding-left: 0;
+    list-style: none;
+    width: 100% !important;
+    text-align: right !important;
+}
+
+.div-width{
+    padding-top:1%;
+    width: 25% !important;
+}
+
+.search{
+  background-color: #2B2647;
+   width: 100%;  
+  border: none;
+}
+
+.edit-btn{
+color:yellow;
+background-color: #3c3658;
+border: 1px solid grey;
+border-radius: 10px;
+float:right;
+width: 50px;
+padding:5px;
+
+}
+
+.content{
+
+  background-color:#2B2647;
+  border-color: yellow;
+  box-shadow: 5px 5px #2B2647;
+  font-family: 'Segoe UI';
+  padding: 10px;
+  width: 90%;
+  font-size: 25px;
+}
+
+.h5-heading{
+ 
+  padding: 15Px;
+  font-family: 'Segoe UI';
+}
+
+.padding{
+  padding: 50px;
+}
+
+.side-card{
+
+  color: grey;
+  background-color: #2B2647;
+  box-shadow: 1px 1px #231f3a;
+}
+
+.side-btn{
+  color: #EF7A2D;
+  float:right;
+
+  background-color: #3c3658;
+  border:none;
+
+
+  display:block;
+  height: 23px;
+  width: 23px;
+  border-radius: 50%;
+
+}
+.overview-heading{
+  color: yellow;
+  font-size: 16px;
+  font-family: 'Segoe UI';
+}
+
+.citizen-card{
+    background-color: #dddbff;
+    width: 100%;
+    padding-left: 0;
+    font-size: larger;
+    font-family: 'Segoe UI';
+    border-bottom: 2px solid #4e37b0;
+}
+
+.calendar-btn{
+    color: black;
+    background-color: #dddbff;
+    padding: 10px;
+    font-weight: 100;
+    border: none;
+    font-size: 15px;
+    border-radius: 5px;
+    font-weight: 500;
+    margin-right: 12px;
+    border: 1px solid #4e37b0;
+}
+
+.fac-dropdown{
+
+  background-color: #dddbff;
+  border: 1px solid #4e37b0;
+  color:black;
+  font-size: 15px !important;
+  border-radius: 5px;
+  font-family: 'Segoe UI';
+  width: 90%;
+  float: right;
+  /* height: 29px;
+    width: 110px; */
+  
+}
+.option{
+
+  background-color: white;
+  
+  color:black;
+  font-size: 15px !important;
+
+  font-family: 'Segoe UI';
+
+  /* height: 29px;
+    width: 110px; */
+  
+}
+.show {display: block;}
+.citizen-block{
+ 
+    background: #ffffff;
+    color: white;
+    margin-bottom: 30px;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.50)!important;
+    text-align: center;
+}
+.service-title{
+  color:black;
+  font-size:15px;
+  font-family: 'Segoe UI';
+  font-weight: 400;
+}

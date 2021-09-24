@@ -1,0 +1,63 @@
+<div class="container" *ngIf="Citizensdetails">
+    <mdb-icon fas style=" color: #6146D5;float:right;cursor: pointer;" icon="times" mdbTooltip="Close" placement="left"
+    (click)="onClose()"></mdb-icon>
+    <div class="row pb-1">
+        <div class="col-md-8 pl-0 pb-2">
+            <mdb-icon fas icon="info" style=" color:#6146D5;font-size: large;"></mdb-icon>&nbsp;
+            <span class="heading" style="border-bottom: 2px solid #6146D5;padding-bottom: 4px;">Citizen Information and details</span>
+        </div>
+        <div class="col-md-4 pr-0 pb-2">
+            <!-- <img src="../../../assets/img/profileImage.png" style="width:10%;border-radius:50%;">&nbsp;&nbsp; -->
+            <!-- <img src="{{url}}{{Citizensdetails.image_path}}" class="img">&nbsp;&nbsp;
+            <label class="big-label">{{fullname|titlecase}}</label> -->
+        </div>
+    </div>
+    <!-- <div class="row">
+        <div class="col-md-5">
+            <mdb-icon style="color: yellow;" fas icon="lightbulb"></mdb-icon>
+            <span class="headingClass"> Citizen Information and Details </span>
+        </div>
+        <div class="col-md-5" style="float:right;">
+            <div class="row floatclass">
+                <section class="avtar">
+                    <span class="initials">{{initials}}</span>
+                </section>
+                <label class="username">{{fullname}}</label>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <span style="color: #EF7A2D;font-size: x-large;float:right;" (click)="onClose()">×</span>
+        </div>
+    </div> -->
+    <!-- <hr> -->
+    <mat-divider style="background-color:#d0d0d0 ;"></mat-divider>
+    <div *ngIf="dataFound">
+        <div class="row">
+            <div class="col-md-6 pt-3 pb-3" style="text-align: right;">
+                <label class="labelClass">Name :</label><br>
+                <label class="labelClass">Ward Name :</label><br>
+                <label class="labelClass">Email Address :</label><br>
+                <label class="labelClass">Phone Number :</label><br>
+                <label class="labelClass">Number of Complaints logged :</label><br>
+                <label class="labelClass">Number of Suggestions made :</label><br>
+                <label class="labelClass">Registration Date :</label><br>
+            </div>
+            <div class="col-md-6 pt-3 pb-3">
+                <label class="detailsClass">{{Citizensdetails.full_name|titlecase}}</label><br>
+                <label class="detailsClass">{{Citizensdetails.ward_name}}</label><br>
+                <label class="detailsClass">{{Citizensdetails.email}}</label><br>
+                <label class="detailsClass">{{Citizensdetails.phone_number}}</label><br>
+                <label class="detailsClass">{{Citizensdetails.complaint_logged_count}}</label><br>
+                <label class="detailsClass">{{Citizensdetails.idea_count}}</label><br>
+                <label class="detailsClass">{{Citizensdetails.registration_date|
+                    date:'dd-MM-yyyy'}}</label><br>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!dataFound">
+        <h5 style="color: aliceblue;text-align: center;">Citizens details are not available</h5>
+    </div>
+    <mat-divider style="background-color:#d0d0d0 ;"></mat-divider>
+    <!-- <hr> -->
+    <div class="row"></div>
+</div>
