@@ -12,7 +12,7 @@ services:
       - '5432:5432'
 
   web:
-    image: eqw21/technical1
+    image: eqw21/technical7
     depends_on:
      - db
     ports:
